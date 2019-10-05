@@ -1,0 +1,1 @@
+C:\"Program Files (x86)"\"Microsoft Visual Studio"\2019\Professional\VC\Tools\MSVC\14.22.27905\bin\Hostx64\x64\dumpbin /exports URG04Kit_x64.dll /out:URG04Kit_x64.txt

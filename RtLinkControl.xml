@@ -1,0 +1,305 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RtLinkControl</name>
+    </assembly>
+    <members>
+        <member name="T:RtLinkControl.RtClientControl">
+            <summary>
+            Client control
+            </summary>
+        </member>
+        <member name="P:RtLinkControl.RtClientControl.isConnected">
+            <summary>
+            Check if connection is on
+            </summary>
+        </member>
+        <member name="P:RtLinkControl.RtClientControl.rtLink">
+            <summary>
+            The underlying RealtimeLink object
+            </summary>
+        </member>
+        <member name="M:RtLinkControl.RtClientControl.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:RtLinkControl.RtClientControl.connectServer(System.Net.IPAddress,System.Int32)">
+            <summary>
+            连接服务器，返回值表示是否成功
+            </summary>
+            <param name="remote">要连接的IP地址</param>
+            <param name="port">要连接的端口</param>
+            <returns>true - 成功连接, false - 连接失败</returns>
+        </member>
+        <member name="M:RtLinkControl.RtClientControl.disconnectServer">
+            <summary>
+            断开与服务器间的连接
+            </summary>
+        </member>
+        <member name="F:RtLinkControl.RtClientControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:RtLinkControl.RtClientControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:RtLinkControl.RtClientControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:RtLinkControl.RealtimeLink">
+            <summary>
+            Managing realtime connection and data transfer 
+            </summary>
+        </member>
+        <member name="P:RtLinkControl.RealtimeLink.isReceiving">
+            <summary>
+            Check if the connection is working.
+            </summary>
+        </member>
+        <member name="P:RtLinkControl.RealtimeLink.Connection">
+            <summary>
+            The underlying TcpClient object
+            </summary>
+        </member>
+        <member name="M:RtLinkControl.RealtimeLink.#ctor(System.Net.Sockets.TcpClient)">
+            <summary>
+            Constructor 
+            </summary>
+            <param name="connectedClient">connected TcpClient object</param>
+        </member>
+        <member name="M:RtLinkControl.RealtimeLink.Dispose">
+            <summary>
+            Close connection
+            </summary>
+        </member>
+        <member name="M:RtLinkControl.RealtimeLink.Finalize">
+            <summary>
+            Deconstruction
+            </summary>
+        </member>
+        <member name="M:RtLinkControl.RealtimeLink.SendData(System.Byte[],System.Int32,System.Int32,System.Int32,System.Int32[],System.Int32,System.Boolean)">
+            <summary>
+            Send data to the remote.
+            发送数据。
+            </summary>
+            <param name="data">包含待发送数据的数组</param>
+            <param name="dataTotalBytes">数据字节数，不能大于数组长度</param>
+            <param name="dataType">应用程序自定义的数据类型</param>
+            <param name="dataDim">数据维数</param>
+            <param name="dimLength">包含各维长度的Int32[8]数组。The array shorter than 8 will be filled with 1.</param>
+            <param name="compressLevel">压缩程度，0：不压缩，1-9：快速压缩-最优压缩</param>
+            <param name="force">true - send in foreground, waiting for network idle and finishing sending.
+            false - send in background, returning immediately and discarding the packet if network is busy. </param>
+            <returns>returns the packet information if sending is successful.</returns>
+        </member>
+        <member name="M:RtLinkControl.RealtimeLink.SendData(System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int32[],System.Int32,System.Boolean)">
+            <summary>
+            Send bulky data to the remote.
+            发送数据。
+            </summary>
+            <param name="data">包含待发送数据的内存指针</param>
+            <param name="dataTotalBytes">数据字节数</param>
+            <param name="dataType">应用程序自定义的数据类型</param>
+            <param name="dataDim">数据维数</param>
+            <param name="dimLength">包含各维长度的Int32[8]数组。The array shorter than 8 will be filled with 1.</param>
+            <param name="compressLevel">压缩程度，0：不压缩，1-9：快速压缩-最优压缩</param>
+            <param name="force">true - send in foreground, waiting for network idle and finishing sending.
+            false - send in background, returning immediately and discarding the packet if network is busy. </param>
+            <returns>returns the packet information if sending is successful.</returns>
+        </member>
+        <member name="M:RtLinkControl.RealtimeLink.SendBitmap(System.Drawing.Bitmap,System.Int32,System.Boolean)">
+            <summary>
+            Send bitmap to the remote.
+            发送图像。
+            </summary>
+            <param name="bmp">待发送的图像</param>
+            <param name="compressLevel">压缩程度，0：不压缩，1-9：快速压缩-最优压缩</param>
+            <param name="force">true - send in foreground, waiting for network idle and finishing sending.
+            false - send in background, returning immediately and discarding the packet if network is busy. </param>
+            <returns>returns the packet information if sending is successful.</returns>
+        </member>
+        <member name="M:RtLinkControl.RealtimeLink.GetReceivedData(System.Byte[])">
+            <summary>
+            Get received data and data information. Set destBuffer to null if only data information is required.
+            </summary>
+            <param name="destBuffer">buffer for data</param>
+            <returns>Data information</returns>
+        </member>
+        <member name="M:RtLinkControl.RealtimeLink.GetReceivedData(System.IntPtr,System.Int32)">
+            <summary>
+            Get bulky received data and data information
+            </summary>
+            <param name="destBuffer">Allocated buffer for data</param>
+            <param name="szBuffer">Bytes of the buffer</param>
+            <returns>Data information</returns>
+        </member>
+        <member name="M:RtLinkControl.RealtimeLink.GetReceivedBitmap">
+            <summary>
+            Get received bitmap: color image (3D 8bit array: color, width, height) or gray image (2D 8bit array).
+            Image width must be 4-rounded.
+            </summary>
+            <returns>return a bitmap if the data is valid</returns>
+        </member>
+        <member name="M:RtLinkControl.RealtimeLink.CompressPacket(System.IntPtr@,System.Int32@,System.IntPtr,System.Int32,System.Int32)">
+            <summary>
+            压缩数据到指定缓冲区，如果空间不够则自动扩展。
+            </summary>
+            <param name="dest">压缩数据存储区</param>
+            <param name="destLen">压缩数据存储区大小</param>
+            <param name="srcData">原始数据存储区</param>
+            <param name="szSrcData">原始数据存储区大小</param>
+            <param name="compressLevel">压缩程度，0：不压缩，1-9：快速压缩-最优压缩</param>
+            <returns>返回压缩数据长度。返回0失败。</returns>
+        </member>
+        <member name="M:RtLinkControl.RealtimeLink.DecompressPacket(System.IntPtr@,System.Int32@,System.Int32,System.IntPtr,System.Int32)">
+            <summary>
+            解压数据到指定缓冲区，如果空间不够则自动扩展。
+            </summary>
+            <param name="dest">解压数据存储区</param>
+            <param name="destLen">解压数据存储区大小</param>
+            <param name="szDecompressed">解压数据长度</param>
+            <param name="compressedData">压缩数据存储区</param>
+            <param name="szCompressedData">压缩数据存储区大小</param>
+            <returns>返回解压数据长度。</returns>
+        </member>
+        <member name="T:RtLinkControl.RealtimeLink.PacketInfo">
+            <summary>
+            Packet information
+            </summary>
+        </member>
+        <member name="M:RtLinkControl.RealtimeLink.PacketInfo.#ctor">
+            <summary>
+            constructor
+            </summary>
+        </member>
+        <member name="M:RtLinkControl.RealtimeLink.PacketInfo.#ctor(System.Int32,System.Int64,System.Int32,System.Int32,System.Int32,System.Int32[])">
+            <summary>
+            constructor
+            </summary>
+            <param name="stamp">报文序号</param>
+            <param name="ticks">报文发送时刻</param>
+            <param name="dataTotal">数据总字节数，即各维乘积</param>
+            <param name="type">自定义数数据类型</param>
+            <param name="dim">数据维数</param>
+            <param name="dimLen">Int32[8] containing dim lengths. The array shorter than 8 will be filled with 1.</param>
+        </member>
+        <member name="P:RtLinkControl.RealtimeLink.PacketInfo.dataStamp">
+            <summary>
+            serial number of the packet
+            </summary>
+        </member>
+        <member name="P:RtLinkControl.RealtimeLink.PacketInfo.dataTicks">
+            <summary>
+            Ticks of the packet being sent (0.1us)
+            </summary>
+        </member>
+        <member name="P:RtLinkControl.RealtimeLink.PacketInfo.dataTotalBytes">
+            <summary>
+            bytes of data in the packet
+            </summary>
+        </member>
+        <member name="P:RtLinkControl.RealtimeLink.PacketInfo.dataType">
+            <summary>
+            data type of each data
+            </summary>
+        </member>
+        <member name="P:RtLinkControl.RealtimeLink.PacketInfo.dataDim">
+            <summary>
+            dimension of data
+            </summary>
+        </member>
+        <member name="P:RtLinkControl.RealtimeLink.PacketInfo.dimLength">
+            <summary>
+            lengths of each dimension
+            </summary>
+        </member>
+        <member name="M:RtLinkControl.RealtimeLink.PacketInfo.CloneFrom(RtLinkControl.RealtimeLink.PacketInfo)">
+            <summary>
+            Clone packet head from a packet head. 
+            </summary>
+            <param name="src"></param>
+        </member>
+        <member name="M:RtLinkControl.RealtimeLink.PacketInfo.PackHead">
+            <summary>
+            Write this packet head to a buffer.
+            </summary>
+            <returns>byte[64] buffer containing a packet head</returns>
+        </member>
+        <member name="M:RtLinkControl.RealtimeLink.PacketInfo.ReadHeadFrom(System.Byte[],System.Int32)">
+            <summary>
+            Read packet head from a buffer.
+            </summary>
+            <param name="buffer"> byte[64] buffer containing a packet head </param>
+            <param name="startIndex"> index of the packet head in the buffer </param>
+            <returns>Return null if the head is invalid.</returns>
+        </member>
+        <member name="T:RtLinkControl.RtServerControl">
+            <summary>
+            Server control
+            </summary>
+        </member>
+        <member name="P:RtLinkControl.RtServerControl.isListening">
+            <summary>
+            Check if the server is listening.
+            </summary>
+        </member>
+        <member name="P:RtLinkControl.RtServerControl.Listener">
+            <summary>
+            The underlying TcpListener object
+            </summary>
+        </member>
+        <member name="P:RtLinkControl.RtServerControl.rtLinkList">
+            <summary>
+            List of incomming connections
+            </summary>
+        </member>
+        <member name="P:RtLinkControl.RtServerControl.maxLink">
+            <summary>
+            Maximal incoming connections. Default value is 16.
+            </summary>
+        </member>
+        <member name="M:RtLinkControl.RtServerControl.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:RtLinkControl.RtServerControl.startServer(System.Net.IPAddress,System.Int32)">
+            <summary>
+            开启服务器
+            </summary>
+            <param name="localIp"><para>要使用的本机IP</para><para>注意：必须是本机IP</para></param>
+            <param name="port">要使用的端口号</param>
+            <returns>true - 成功，false - 失败</returns>
+        </member>
+        <member name="M:RtLinkControl.RtServerControl.stopServer">
+            <summary>
+            关闭服务器
+            </summary>
+        </member>
+        <member name="F:RtLinkControl.RtServerControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:RtLinkControl.RtServerControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:RtLinkControl.RtServerControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+    </members>
+</doc>

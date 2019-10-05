@@ -1,0 +1,210 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>URG04Control</name>
+    </assembly>
+    <members>
+        <member name="T:URG04Driver.URG04Device">
+            <summary>
+            Driver of URG04 range scanners
+            </summary>
+        </member>
+        <member name="M:URG04Driver.URG04Device.#ctor">
+            <summary>
+            constructor
+            </summary>
+        </member>
+        <member name="M:URG04Driver.URG04Device.Finalize">
+            <summary>
+            destructor
+            </summary>
+        </member>
+        <member name="M:URG04Driver.URG04Device.SearchURG04Device">
+            <summary>
+            search for ports
+            </summary>
+            <returns>total number of ports</returns>
+        </member>
+        <member name="M:URG04Driver.URG04Device.GetURG04Port(System.Int32,System.Int32@)">
+            <summary>
+            read port name and number. called after SearchURG04Device().
+            </summary>
+            <param name="idx"></param>
+            <param name="ComNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:URG04Driver.URG04Device.GetURG04Total">
+            <summary>
+            read total number of ports
+            </summary>
+            <returns>total number of ports</returns>
+        </member>
+        <member name="M:URG04Driver.URG04Device.StartScan(System.Int32)">
+            <summary>
+            start scanner on the target port
+            </summary>
+            <param name="ComNo"></param>
+            <returns>success or not</returns>
+        </member>
+        <member name="M:URG04Driver.URG04Device.Close">
+            <summary>
+            stop scanner
+            </summary>
+        </member>
+        <member name="M:URG04Driver.URG04Device.ReadScanAngle(System.Double[])">
+            <summary>
+            read angles of data points (radian). the angles are fixed.
+            </summary>
+            <param name="theta">array fill with angles (radian)</param>
+            <returns>number of data points</returns>
+        </member>
+        <member name="M:URG04Driver.URG04Device.ReadScanAngleDeg(System.Double[])">
+            <summary>
+            read angles of data points (degree). the angles are fixed.
+            </summary>
+            <param name="thetaDeg">array fill with angles (degree)</param>
+            <returns>number of data points</returns>
+        </member>
+        <member name="M:URG04Driver.URG04Device.ReadRange(System.Double[],System.Int32@,System.Double[],System.Int32@)">
+            <summary>
+            read range data (meter).
+            </summary>
+            <param name="range">array used to store range data</param>
+            <param name="timeStamp">time stamp of the range data</param>
+            <param name="range0">array used to store previous range data</param>
+            <param name="timeStamp0">time stamp of previous range data</param>
+            <returns>number of data points</returns>
+        </member>
+        <member name="M:URG04Driver.URG04Device.ReadRange(System.Double[],System.Int32@)">
+            <summary>
+            read range data (meter).
+            </summary>
+            <param name="range">array used to store range data</param>
+            <param name="timeStamp">time stamp of the range data</param>
+            <returns>number of data points</returns>
+        </member>
+        <member name="P:URG04Driver.URG04Device.ScannerActive">
+            <summary>
+            check if the scanner is on.
+            </summary>
+        </member>
+        <member name="P:URG04Driver.URG04Device.ActiveURGPort">
+            <summary>
+            port number currently used by the scanner
+            </summary>
+        </member>
+        <member name="P:URG04Driver.URG04Device.URGPort">
+            <summary>
+            port number currently or recently used by the scanner
+            </summary>
+        </member>
+        <member name="P:URG04Driver.URG04Device.Log">
+            <summary>
+            get / set log state
+            </summary>
+        </member>
+        <member name="M:URG04Driver.URG04Device.RangeToMap(System.Byte[0:,0:],System.Double,System.Double,System.Double[],System.Double)">
+            <summary>
+            Convert range data to 2D map. North is upward and the scanner is at the center. 
+            </summary>
+            <param name="map">target array that will be filled by map</param>
+            <param name="r_front">the distance from the center to the edge of the map (meter)</param>
+            <param name="steering">the angle between the front of the scanner and north (radian)</param>
+            <param name="range">range points (meter)</param>
+            <param name="stepAngle">angle between range points (radian)</param>
+        </member>
+        <member name="M:URG04Driver.URG04Device.MapToBmp(System.Byte[0:,0:])">
+            <summary>
+            generate a bmp from a 2D map array
+            </summary>
+            <param name="map">source 2D map</param>
+            <returns>bmp object</returns>
+        </member>
+        <member name="M:URG04Driver.URG04Device.RoundedAngle(System.Double)">
+            <summary>
+            round an angle to (-pi, pi]
+            </summary>
+            <param name="theta">target angle (radian)</param>
+            <returns>rounded angle (radian)</returns>
+        </member>
+        <member name="M:URG04Driver.URG04Device.RoundedAngleDeg(System.Double)">
+            <summary>
+            round an angle to (-180, 180] degree
+            </summary>
+            <param name="theta">target angle (degree)</param>
+            <returns>rounded angle (degree)</returns>
+        </member>
+        <member name="T:URG04Driver.URG04SetupControl">
+            <summary>
+            Interface for the driver of URG04 range scanners
+            </summary>
+        </member>
+        <member name="M:URG04Driver.URG04SetupControl.#ctor">
+            <summary>
+            constructor
+            </summary>
+        </member>
+        <member name="M:URG04Driver.URG04SetupControl.InitializeControl">
+            <summary>
+            Initializing the control
+            </summary>
+        </member>
+        <member name="P:URG04Driver.URG04SetupControl.urg04Device">
+            <summary>
+            related URG04Device object
+            </summary>
+        </member>
+        <member name="P:URG04Driver.URG04SetupControl.URGPort">
+            <summary>
+            currently or recently active port number
+            </summary>
+        </member>
+        <member name="P:URG04Driver.URG04SetupControl.systemPorts">
+            <summary>
+            system port list
+            </summary>
+        </member>
+        <member name="P:URG04Driver.URG04SetupControl.thetaDeg">
+            <summary>
+            angles of data points (degree).
+            </summary>
+        </member>
+        <member name="P:URG04Driver.URG04SetupControl.theta">
+            <summary>
+            angles of data points (radian).
+            </summary>
+        </member>
+        <member name="P:URG04Driver.URG04SetupControl.nRange">
+            <summary>
+            number of range data points
+            </summary>
+        </member>
+        <member name="F:URG04Driver.URG04SetupControl.data_timer">
+            <summary>
+            outer timer that can be controlled by the start button
+            </summary>
+        </member>
+        <member name="M:URG04Driver.URG04SetupControl.InitDeviceList">
+            <summary>
+            内部方法
+            </summary>
+        </member>
+        <member name="F:URG04Driver.URG04SetupControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:URG04Driver.URG04SetupControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:URG04Driver.URG04SetupControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+    </members>
+</doc>

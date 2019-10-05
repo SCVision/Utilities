@@ -1,0 +1,39 @@
+
+Dump of file DataSharer_x64.dll
+
+File Type: DLL
+
+  Section contains the following exports for DataSharer_x64.dll
+
+    00000000 characteristics
+    FFFFFFFF time date stamp Sun Feb 07 14:28:15 2106
+        0.00 version
+           1 ordinal base
+          14 number of functions
+          14 number of names
+
+    ordinal hint RVA      name
+
+          1    0 00001180 ??0DataSharer@@QEAA@XZ = ??0DataSharer@@QEAA@XZ (public: __cdecl DataSharer::DataSharer(void))
+          2    1 000011D0 ??1DataSharer@@QEAA@XZ = ??1DataSharer@@QEAA@XZ (public: __cdecl DataSharer::~DataSharer(void))
+          3    2 000010E0 ??4DataSharer@@QEAAAEAV0@AEBV0@@Z = ??4DataSharer@@QEAAAEAV0@AEBV0@@Z (public: class DataSharer & __cdecl DataSharer::operator=(class DataSharer const &))
+          4    3 000011D0 ?CloseAllHandles@DataSharer@@AEAAXXZ = ??1DataSharer@@QEAA@XZ (public: __cdecl DataSharer::~DataSharer(void))
+          5    4 00001240 ?CloseMemoryHandles@DataSharer@@AEAAXXZ = ?CloseMemoryHandles@DataSharer@@AEAAXXZ (private: void __cdecl DataSharer::CloseMemoryHandles(void))
+          6    5 00001AD0 ?GetBlockBytes@DataSharer@@QEAAHXZ = ?GetBlockBytes@DataSharer@@QEAAHXZ (public: int __cdecl DataSharer::GetBlockBytes(void))
+          7    6 00001AB0 ?GetBlockName@DataSharer@@QEAAPEBDXZ = ?GetBlockName@DataSharer@@QEAAPEBDXZ (public: char const * __cdecl DataSharer::GetBlockName(void))
+          8    7 00001AC0 ?GetBlockSN@DataSharer@@QEAAHXZ = ?GetBlockSN@DataSharer@@QEAAHXZ (public: int __cdecl DataSharer::GetBlockSN(void))
+          9    8 00001290 ?OpenSharedBlock@DataSharer@@QEAAHPEBDHH@Z = ?OpenSharedBlock@DataSharer@@QEAAHPEBDHH@Z (public: int __cdecl DataSharer::OpenSharedBlock(char const *,int,int))
+         10    9 000016A0 ?ReadData@DataSharer@@QEAAHPEAEHAEAH11AEAN1@Z = ?ReadData@DataSharer@@QEAAHPEAEHAEAH11AEAN1@Z (public: int __cdecl DataSharer::ReadData(unsigned char *,int,int &,int &,int &,double &,int &))
+         11    A 00001970 ?ReadImage@DataSharer@@QEAAHPEAEHAEAUInfoImage@@AEANAEAH@Z = ?ReadImage@DataSharer@@QEAAHPEAEHAEAUInfoImage@@AEANAEAH@Z (public: int __cdecl DataSharer::ReadImage(unsigned char *,int,struct InfoImage &,double &,int &))
+         12    B 00001530 ?WriteData@DataSharer@@QEAAHPEAEH0HH@Z = ?WriteData@DataSharer@@QEAAHPEAEH0HH@Z (public: int __cdecl DataSharer::WriteData(unsigned char *,int,unsigned char *,int,int))
+         13    C 000017E0 ?WriteImage@DataSharer@@QEAAHPEAEHHHHN@Z = ?WriteImage@DataSharer@@QEAAHPEAEHHHHN@Z (public: int __cdecl DataSharer::WriteImage(unsigned char *,int,int,int,int,double))
+         14    D 00001160 ?__autoclassinit2@DataSharer@@QEAAX_K@Z = ?__autoclassinit2@DataSharer@@QEAAX_K@Z (public: void __cdecl DataSharer::__autoclassinit2(unsigned __int64))
+
+  Summary
+
+        1000 .data
+        1000 .pdata
+        2000 .rdata
+        1000 .reloc
+        1000 .rsrc
+        2000 .text

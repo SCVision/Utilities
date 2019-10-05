@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MobileCameraControl</name>
+    </assembly>
+    <members>
+        <member name="F:Vision.CamAttitudeControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Vision.CamAttitudeControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Vision.CamAttitudeControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:Vision.VideoSetupControl.#ctor">
+            <summary>
+            constructor
+            </summary>
+        </member>
+        <member name="M:Vision.VideoSetupControl.InitializeControl">
+            <summary>
+            初始化对象，搜索安装的视频设备。
+            </summary>
+        </member>
+        <member name="M:Vision.VideoSetupControl.SelectCurrentDevice(System.Int32)">
+            <summary>
+            选择当前设备。
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vision.VideoSetupControl.SelectCurrentDeviceFormat(System.Int32)">
+            <summary>
+            选择当前设备的视频格式。
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vision.VideoSetupControl.SelectSourceDevice(System.Int32)">
+            <summary>
+            选择视频源设备。
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vision.VideoSetupControl.CurrentDeviceStart">
+            <summary>
+            启动当前设备视频流。
+            </summary>
+        </member>
+        <member name="M:Vision.VideoSetupControl.CurrentDeviceStop">
+            <summary>
+            停止当前设备视频流。
+            </summary>
+        </member>
+        <member name="M:Vision.VideoSetupControl.CurrentDeviceRunningState">
+            <summary>
+            获得当前设备视频流状态。
+            </summary>
+            <returns>返回0表示停止，1表示暂停，2表示正常运行，-1表示未关联视频设备，-2表示状态获取失败。</returns>
+        </member>
+        <member name="M:Vision.VideoSetupControl.CurrentDeviceSetup">
+            <summary>
+            打开当前设备设置对话框。
+            </summary>
+        </member>
+        <member name="P:Vision.VideoSetupControl.videoDevices">
+            <summary>
+            设备管理对象数组
+            </summary>
+        </member>
+        <member name="P:Vision.VideoSetupControl.sourceDevice">
+            <summary>
+            视频帧获取对象
+            </summary>
+        </member>
+        <member name="P:Vision.VideoSetupControl.device_total">
+            <summary>
+            视频设备总数
+            </summary>
+        </member>
+        <member name="P:Vision.VideoSetupControl.currentDevice_index">
+            <summary>
+            当前设备索引号
+            </summary>
+        </member>
+        <member name="P:Vision.VideoSetupControl.frame_channel">
+            <summary>
+            视频帧信息-通道数
+            </summary>
+        </member>
+        <member name="P:Vision.VideoSetupControl.frame_width">
+            <summary>
+            视频帧信息-宽度
+            </summary>
+        </member>
+        <member name="P:Vision.VideoSetupControl.frame_height">
+            <summary>
+            视频帧信息-高度
+            </summary>
+        </member>
+        <member name="P:Vision.VideoSetupControl.secPerFrame">
+            <summary>
+            视频帧信息-帧间隔时间
+            </summary>
+        </member>
+        <member name="F:Vision.VideoSetupControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Vision.VideoSetupControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Vision.VideoSetupControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+    </members>
+</doc>

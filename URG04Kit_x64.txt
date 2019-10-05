@@ -1,0 +1,40 @@
+
+Dump of file URG04Kit_x64.dll
+
+File Type: DLL
+
+  Section contains the following exports for URG04Kit_x64.dll
+
+    00000000 characteristics
+    FFFFFFFF time date stamp
+        0.00 version
+           1 ordinal base
+          15 number of functions
+          15 number of names
+
+    ordinal hint RVA      name
+
+          1    0 00001550 ??0URG04Device@@QEAA@XZ = ??0URG04Device@@QEAA@XZ (public: __cdecl URG04Device::URG04Device(void))
+          2    1 000015F0 ??1URG04Device@@QEAA@XZ = ??1URG04Device@@QEAA@XZ (public: __cdecl URG04Device::~URG04Device(void))
+          3    2 00001530 ??4URG04Device@@QEAAAEAV0@AEBV0@@Z = ??4URG04Device@@QEAAAEAV0@AEBV0@@Z (public: class URG04Device & __cdecl URG04Device::operator=(class URG04Device const &))
+          4    3 00001F30 ?Close@URG04Device@@QEAAXXZ = ?Close@URG04Device@@QEAAXXZ (public: void __cdecl URG04Device::Close(void))
+          5    4 000023C0 ?GetActiveURGComNo@URG04Device@@QEAAHXZ = ?GetActiveURGComNo@URG04Device@@QEAAHXZ (public: int __cdecl URG04Device::GetActiveURGComNo(void))
+          6    5 000023F0 ?GetDataLog@URG04Device@@QEAAHXZ = ?GetDataLog@URG04Device@@QEAAHXZ (public: int __cdecl URG04Device::GetDataLog(void))
+          7    6 00001C30 ?GetURG04Port@URG04Device@@SAPEADHAEAH@Z = ?GetURG04Port@URG04Device@@SAPEADHAEAH@Z (public: static char * __cdecl URG04Device::GetURG04Port(int,int &))
+          8    7 00001CB0 ?GetURG04Total@URG04Device@@SAHXZ = ?GetURG04Total@URG04Device@@SAHXZ (public: static int __cdecl URG04Device::GetURG04Total(void))
+          9    8 000023A0 ?IsActive@URG04Device@@QEAAHXZ = ?IsActive@URG04Device@@QEAAHXZ (public: int __cdecl URG04Device::IsActive(void))
+         10    9 000020F0 ?RangeToMap@URG04Device@@SAXPEAEHHNNPEANHN@Z = ?RangeToMap@URG04Device@@SAXPEAEHHNNPEANHN@Z (public: static void __cdecl URG04Device::RangeToMap(unsigned char *,int,int,double,double,double *,int,double))
+         11    A 00002020 ?ReadRange@URG04Device@@QEAAHPEANPEAH01@Z = ?ReadRange@URG04Device@@QEAAHPEANPEAH01@Z (public: int __cdecl URG04Device::ReadRange(double *,int *,double *,int *))
+         12    B 00001FF0 ?ReadScanAngle@URG04Device@@QEAAHPEAN@Z = ?ReadScanAngle@URG04Device@@QEAAHPEAN@Z (public: int __cdecl URG04Device::ReadScanAngle(double *))
+         13    C 00001BB0 ?SearchURG04Device@URG04Device@@SAHXZ = ?SearchURG04Device@URG04Device@@SAHXZ (public: static int __cdecl URG04Device::SearchURG04Device(void))
+         14    D 000023D0 ?SetDataLog@URG04Device@@QEAAXH@Z = ?SetDataLog@URG04Device@@QEAAXH@Z (public: void __cdecl URG04Device::SetDataLog(int))
+         15    E 00001CC0 ?StartScan@URG04Device@@QEAAHH@Z = ?StartScan@URG04Device@@QEAAHH@Z (public: int __cdecl URG04Device::StartScan(int))
+
+  Summary
+
+        A000 .data
+        1000 .pdata
+        2000 .rdata
+        1000 .reloc
+        1000 .rsrc
+        3000 .text

@@ -1,0 +1,72 @@
+
+Dump of file VideoGrabber_x64.dll
+
+File Type: DLL
+
+  Section contains the following exports for VideoGrabber_x64.dll
+
+    00000000 characteristics
+    FFFFFFFF time date stamp Sun Feb 07 14:28:15 2106
+        0.00 version
+           1 ordinal base
+          47 number of functions
+          47 number of names
+
+    ordinal hint RVA      name
+
+          1    0 00004280 ??0VideoGrabber@@QEAA@XZ = ??0VideoGrabber@@QEAA@XZ (public: __cdecl VideoGrabber::VideoGrabber(void))
+          2    1 00001160 ??0dllShareMemory@@QEAA@XZ = ??0dllShareMemory@@QEAA@XZ (public: __cdecl dllShareMemory::dllShareMemory(void))
+          3    2 00001A40 ??0sampleGrabberCallback@@QEAA@AEBV0@@Z = ??0sampleGrabberCallback@@QEAA@AEBV0@@Z (public: __cdecl sampleGrabberCallback::sampleGrabberCallback(class sampleGrabberCallback const &))
+          4    3 00001B70 ??0sampleGrabberCallback@@QEAA@XZ = ??0sampleGrabberCallback@@QEAA@XZ (public: __cdecl sampleGrabberCallback::sampleGrabberCallback(void))
+          5    4 00004350 ??1VideoGrabber@@QEAA@XZ = ??1VideoGrabber@@QEAA@XZ (public: __cdecl VideoGrabber::~VideoGrabber(void))
+          6    5 000011B0 ??1dllShareMemory@@QEAA@XZ = ??1dllShareMemory@@QEAA@XZ (public: __cdecl dllShareMemory::~dllShareMemory(void))
+          7    6 00001C00 ??1sampleGrabberCallback@@QEAA@XZ = ??1sampleGrabberCallback@@QEAA@XZ (public: __cdecl sampleGrabberCallback::~sampleGrabberCallback(void))
+          8    7 00003F70 ??4VideoGrabber@@QEAAAEAV0@AEBV0@@Z = ??4VideoGrabber@@QEAAAEAV0@AEBV0@@Z (public: class VideoGrabber & __cdecl VideoGrabber::operator=(class VideoGrabber const &))
+          9    8 000010E0 ??4dllShareMemory@@QEAAAEAV0@AEBV0@@Z = ??4dllShareMemory@@QEAAAEAV0@AEBV0@@Z (public: class dllShareMemory & __cdecl dllShareMemory::operator=(class dllShareMemory const &))
+         10    9 00001B00 ??4sampleGrabberCallback@@QEAAAEAV0@AEBV0@@Z = ??4sampleGrabberCallback@@QEAAAEAV0@AEBV0@@Z (public: class sampleGrabberCallback & __cdecl sampleGrabberCallback::operator=(class sampleGrabberCallback const &))
+         11    A 000076B8 ??_7sampleGrabberCallback@@6B@ = ??_7sampleGrabberCallback@@6B@ (const sampleGrabberCallback::`vftable')
+         12    B 00001E40 ?AddRef@sampleGrabberCallback@@EEAAKXZ = ?AddRef@sampleGrabberCallback@@EEAAKXZ (private: virtual unsigned long __cdecl sampleGrabberCallback::AddRef(void))
+         13    C 00001DD0 ?BufferCB@sampleGrabberCallback@@EEAAJNPEAEJ@Z = ?BufferCB@sampleGrabberCallback@@EEAAJNPEAEJ@Z (private: virtual long __cdecl sampleGrabberCallback::BufferCB(double,unsigned char *,long))
+         14    D 00004D60 ?Close@VideoGrabber@@QEAAXXZ = ?Close@VideoGrabber@@QEAAXXZ (public: void __cdecl VideoGrabber::Close(void))
+         15    E 000011B0 ?CloseAllHandles@dllShareMemory@@AEAAXXZ = ??1dllShareMemory@@QEAA@XZ (public: __cdecl dllShareMemory::~dllShareMemory(void))
+         16    F 000011F0 ?CloseMemoryHandles@dllShareMemory@@AEAAXXZ = ?CloseMemoryHandles@dllShareMemory@@AEAAXXZ (private: void __cdecl dllShareMemory::CloseMemoryHandles(void))
+         17   10 00004DE0 ?GetActivatedDeviceName@VideoGrabber@@QEAAPEADXZ = ?GetActivatedDeviceName@VideoGrabber@@QEAAPEADXZ (public: char * __cdecl VideoGrabber::GetActivatedDeviceName(void))
+         18   11 00004DD0 ?GetActivatedDeviceNo@VideoGrabber@@QEAAHXZ = ?GetActivatedDeviceNo@VideoGrabber@@QEAAHXZ (public: int __cdecl VideoGrabber::GetActivatedDeviceNo(void))
+         19   12 00005160 ?GetCapturerInfo@VideoGrabber@@QEAAPEADXZ = ?GetCapturerInfo@VideoGrabber@@QEAAPEADXZ (public: char * __cdecl VideoGrabber::GetCapturerInfo(void))
+         20   13 000053E0 ?GetCurrentVideoFormat@VideoGrabber@@QEAAPEADAEAH00AEAN@Z = ?GetCurrentVideoFormat@VideoGrabber@@QEAAPEADAEAH00AEAN@Z (public: char * __cdecl VideoGrabber::GetCurrentVideoFormat(int &,int &,int &,double &))
+         21   14 00004250 ?GetDeviceName@VideoGrabber@@SAPEADH@Z = ?GetDeviceName@VideoGrabber@@SAPEADH@Z (public: static char * __cdecl VideoGrabber::GetDeviceName(int))
+         22   15 00004240 ?GetDeviceTotal@VideoGrabber@@SAHXZ = ?GetDeviceTotal@VideoGrabber@@SAHXZ (public: static int __cdecl VideoGrabber::GetDeviceTotal(void))
+         23   16 00004FB0 ?GetRunningState@VideoGrabber@@QEAAHXZ = ?GetRunningState@VideoGrabber@@QEAAHXZ (public: int __cdecl VideoGrabber::GetRunningState(void))
+         24   17 00001650 ?GetSharedName@dllShareMemory@@QEAAPEADXZ = ?GetSharedName@dllShareMemory@@QEAAPEADXZ (public: char * __cdecl dllShareMemory::GetSharedName(void))
+         25   18 00005650 ?GetSourceDeviceName@VideoGrabber@@QEAAPEADXZ = ?GetSourceDeviceName@VideoGrabber@@QEAAPEADXZ (public: char * __cdecl VideoGrabber::GetSourceDeviceName(void))
+         26   19 00005640 ?GetSourceDeviceNo@VideoGrabber@@QEAAHXZ = ?GetSourceDeviceNo@VideoGrabber@@QEAAHXZ (public: int __cdecl VideoGrabber::GetSourceDeviceNo(void))
+         27   1A 00005340 ?GetVideoFormat@VideoGrabber@@QEAAPEADHAEAH00AEAN@Z = ?GetVideoFormat@VideoGrabber@@QEAAPEADHAEAH00AEAN@Z (public: char * __cdecl VideoGrabber::GetVideoFormat(int,int &,int &,int &,double &))
+         28   1B 00005310 ?GetVideoFormatName@VideoGrabber@@QEAAPEADH@Z = ?GetVideoFormatName@VideoGrabber@@QEAAPEADH@Z (public: char * __cdecl VideoGrabber::GetVideoFormatName(int))
+         29   1C 00005280 ?GetVideoFormatTotal@VideoGrabber@@QEAAHXZ = ?GetVideoFormatTotal@VideoGrabber@@QEAAHXZ (public: int __cdecl VideoGrabber::GetVideoFormatTotal(void))
+         30   1D 000044A0 ?Open@VideoGrabber@@QEAAHHH@Z = ?Open@VideoGrabber@@QEAAHHH@Z (public: int __cdecl VideoGrabber::Open(int,int))
+         31   1E 00001550 ?OpenExisted@dllShareMemory@@QEAAHPEAD@Z = ?OpenExisted@dllShareMemory@@QEAAHPEAD@Z (public: int __cdecl dllShareMemory::OpenExisted(char *))
+         32   1F 00001280 ?OpenNewMem@dllShareMemory@@QEAAHPEADAEAUsharedHeader@@@Z = ?OpenNewMem@dllShareMemory@@QEAAHPEADAEAUsharedHeader@@@Z (public: int __cdecl dllShareMemory::OpenNewMem(char *,struct sharedHeader &))
+         33   20 00004F20 ?Pause@VideoGrabber@@QEAAHXZ = ?Pause@VideoGrabber@@QEAAHXZ (public: int __cdecl VideoGrabber::Pause(void))
+         34   21 00001E60 ?QueryInterface@sampleGrabberCallback@@EEAAJAEBU_GUID@@PEAPEAX@Z = ?QueryInterface@sampleGrabberCallback@@EEAAJAEBU_GUID@@PEAPEAX@Z (private: virtual long __cdecl sampleGrabberCallback::QueryInterface(struct _GUID const &,void * *))
+         35   22 00005670 ?ReadFrame@VideoGrabber@@QEAAHPEAEHAEAHAEAN1112@Z = ?ReadFrame@VideoGrabber@@QEAAHPEAEHAEAHAEAN1112@Z (public: int __cdecl VideoGrabber::ReadFrame(unsigned char *,int,int &,double &,int &,int &,int &,double &))
+         36   23 00001E50 ?Release@sampleGrabberCallback@@EEAAKXZ = ?Release@sampleGrabberCallback@@EEAAKXZ (private: virtual unsigned long __cdecl sampleGrabberCallback::Release(void))
+         37   24 00001D10 ?SampleCB@sampleGrabberCallback@@EEAAJNPEAUIMediaSample@@@Z = ?SampleCB@sampleGrabberCallback@@EEAAJNPEAUIMediaSample@@@Z (private: virtual long __cdecl sampleGrabberCallback::SampleCB(double,struct IMediaSample *))
+         38   25 00003FB0 ?SearchVideoDevices@VideoGrabber@@SAHXZ = ?SearchVideoDevices@VideoGrabber@@SAHXZ (public: static int __cdecl VideoGrabber::SearchVideoDevices(void))
+         39   26 00005600 ?SelectSourceDevice@VideoGrabber@@QEAAHH@Z = ?SelectSourceDevice@VideoGrabber@@QEAAHH@Z (public: int __cdecl VideoGrabber::SelectSourceDevice(int))
+         40   27 00001C60 ?SetDevName@sampleGrabberCallback@@QEAAXPEAD@Z = ?SetDevName@sampleGrabberCallback@@QEAAXPEAD@Z (public: void __cdecl sampleGrabberCallback::SetDevName(char *))
+         41   28 00001CE0 ?SetSize@sampleGrabberCallback@@QEAAXHHHN@Z = ?SetSize@sampleGrabberCallback@@QEAAXHHHN@Z (public: void __cdecl sampleGrabberCallback::SetSize(int,int,int,double))
+         42   29 00005050 ?SetVideoDeviceDlg@VideoGrabber@@QEAAXXZ = ?SetVideoDeviceDlg@VideoGrabber@@QEAAXXZ (public: void __cdecl VideoGrabber::SetVideoDeviceDlg(void))
+         43   2A 00005480 ?SetVideoFormat@VideoGrabber@@QEAAHHAEAH00AEAN@Z = ?SetVideoFormat@VideoGrabber@@QEAAHHAEAH00AEAN@Z (public: int __cdecl VideoGrabber::SetVideoFormat(int,int &,int &,int &,double &))
+         44   2B 00004E00 ?Start@VideoGrabber@@QEAAHXZ = ?Start@VideoGrabber@@QEAAHXZ (public: int __cdecl VideoGrabber::Start(void))
+         45   2C 00004E90 ?Stop@VideoGrabber@@QEAAHXZ = ?Stop@VideoGrabber@@QEAAHXZ (public: int __cdecl VideoGrabber::Stop(void))
+         46   2D 00001670 ?readShared@dllShareMemory@@QEAAHPEAEHAEAUsharedHeader@@@Z = ?readShared@dllShareMemory@@QEAAHPEAEHAEAUsharedHeader@@@Z (public: int __cdecl dllShareMemory::readShared(unsigned char *,int,struct sharedHeader &))
+         47   2E 00001850 ?writeShared@dllShareMemory@@QEAAHPEAEHAEAUsharedHeader@@@Z = ?writeShared@dllShareMemory@@QEAAHPEAEHAEAUsharedHeader@@@Z (public: int __cdecl dllShareMemory::writeShared(unsigned char *,int,struct sharedHeader &))
+
+  Summary
+
+        2000 .data
+        1000 .pdata
+        4000 .rdata
+        1000 .reloc
+        1000 .rsrc
+        6000 .text
