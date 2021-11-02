@@ -2,29 +2,34 @@
 //
 // Video frame grabber for video devices, C++ version.
 // V2: Surport access by multiple process.
-// by Jingyu Lin, linjy02@hotmail.com, 2019.1
+// writen by Jingyu Lin, linjy02@hotmail.com, 2019.1
+// revised by Jingyu Lin, linjy02@hotmail.com, 2021.9
 //
-// VideoGrabber：用于管理视频设备和获取视频帧。
-// 【注】VideoGrabber对象分为设备管理对象和视频帧获取对象。一个视频设备可以关联多个VideoGrabber对象，这些对象可以属于不同的进程，
-// 其中可以有多个视频帧获取对象，但只有且必须有一个设备管理对象。一个视频设备如果没有关联设备管理对象则不能启动，无法获取视频帧；
-// 如果关联多个设备管理对象则只有一个起作用。所有视频帧获取对象可以同时读取视频帧。
-//
-// 使用方法如下：
-// 1. 首先用静态函数SearchVideoDevices()搜索系统安装的视频设备。
-// 2. 创建设备管理对象或视频帧获取对象。
-//    2.1 如果需要管理视频设备，则应该为每一个视频设备创建一个设备管理对象，保证每个设备都可以获取视频帧。
-//        设备管理对象使用方法如下：
-//        2.1.1 创建一个VideoGrabber对象。用Open()关联被管理的视频设备。
-//        2.1.2 用Start()启动关联的视频设备的视频流。用Stop()停止关联的视频设备的视频流。用GetRunningState()查看视频流状态。
-//        2.1.3 用“设备管理”函数设置关联的视频设备的属性、视频格式，获取视频信息。对于视频采集卡用GetCapturerInfo()查看可用输入端口。
-//        2.1.4 用GetActivatedDeviceNo()、GetActivatedDeviceName()查看关联的视频设备编号和名称。
-//        2.1.5 不再使用设备时，调用Close()或删除对象将关闭关联的视频设备。
-//    2.2 如果需要获取视频帧，则应该创建一个视频帧获取对象。一个视频设备允许关联多个视频帧获取对象，使用方法如下：
-//        2.2.1 创建一个VideoGrabber对象。用SelectSourceDevice()选择关联的视频源设备。
-//        2.2.2 定时用ReadFrame()获取视频帧及其信息。注意设备管理对象用Start()启动设备后，视频帧获取对象才能用ReadFrame()获得视频帧。
-//        2.2.3 用GetSourceDeviceNo()、GetSourceDeviceName()查看关联的视频源设备编号和名称。
-// 3. 注意通过此模块获得的名称、信息和图像等指针由对象管理，用户不要主动释放指针。
-//
+/**********************************************************************************************************
+
+VideoGrabber：用于管理视频设备和获取视频帧。
+【注】VideoGrabber对象分为“设备管理对象”和“视频帧获取对象”。前者可以启动和停止设备的视频流、设置视频格式，
+后者只能只能获得视频设备信息和视频数据。一个视频设备可以关联多个VideoGrabber对象，这些对象可以属于不同的进程，
+其中只有且必须有一个设备管理对象，其它均为视频帧获取对象。一个视频设备如果没有关联设备管理对象则无法启动、无法
+获取视频帧；如果关联多个设备管理对象则只有一个起作用。所有视频帧获取对象可以同时读取视频帧。
+
+使用方法如下：
+1. 首先用静态函数SearchVideoDevices()搜索系统安装的视频设备。
+2. 创建设备管理对象或视频帧获取对象（VideoGrabber对象）。
+   2.1 如果需要管理视频设备，则应该为每一个视频设备创建一个设备管理对象，保证每个设备都可以获取视频帧。
+       设备管理对象使用方法如下：
+       2.1.1 创建一个VideoGrabber对象。用Open()关联被管理的视频设备。
+       2.1.2 用Start()启动关联的视频设备的视频流。用Stop()停止关联的视频设备的视频流。用GetRunningState()查看视频流状态。
+       2.1.3 用“设备管理”函数设置关联的视频设备的属性、视频格式，获取视频信息。对于视频采集卡用GetCapturerInfo()查看可用输入端口。
+       2.1.4 用GetActivatedDeviceNo()、GetActivatedDeviceName()查看关联的视频设备编号和名称。
+       2.1.5 不再使用设备时，调用Close()或删除对象将关闭关联的视频设备。
+   2.2 如果需要获取视频帧，则应该创建一个视频帧获取对象。一个视频设备允许关联多个视频帧获取对象，使用方法如下：
+       2.2.1 创建一个VideoGrabber对象。用SelectSourceDevice()选择关联的视频源设备。
+       2.2.2 定时用ReadFrame()获取视频帧及其信息。注意设备管理对象用Start()启动设备后，视频帧获取对象才能用ReadFrame()获得视频帧。
+       2.2.3 用GetSourceDeviceNo()、GetSourceDeviceName()查看关联的视频源设备编号和名称。
+3. 注意通过此模块获得的名称、信息和图像等指针由对象管理，用户不要主动释放指针。
+
+**********************************************************************************************************/
 
 #ifndef VideoGrabber_HPP
 #define VideoGrabber_HPP
@@ -54,13 +59,13 @@ public:
 
 	/************************ 设备管理 ************************/
 
-	// 功能：设备管理对象关联指定编号的视频设备。之前关联的视频设备被停止视频流并断开。
-	// 输入：DevNo - 选中的设备序号（从0开始）。
+	// 功能：设备管理对象关联指定编号的视频设备并选择视频格式。之前关联的视频设备被停止视频流并断开。
+	// 输入：DevNo - 选中的设备序号（从0开始）。FormatNo - 视频设备所支持的视频格式编号（从0开始）。
 	//       VideoPinType - 选择视频采集卡的输入端口类型。缺省值为PhysConn_Video_Composite(2)。
 	//                      参阅PhysicalConnectorType（头文件末尾说明）。如果指定的设备非视频采集卡，则忽略此参数。
 	// 返回值：返回1表示成功，0表示失败。
-	// 说明：关联设备后才能启动设备和设置视频格式和属性。
-	int Open(int DevNo, int VideoPinType = -1);
+	// 说明：关联设备后才能启动设备和设置属性。用GetCurrentVideoFormat()可以得到实际视频格式信息。
+	int Open(int DevNo, int FormatNo = 0, int VideoPinType = -1);
 
 	// 功能：停止视频流，断开关联的视频设备和关联的视频源设备。
 	// 说明：VideoGrabber对象结束时自动调用此函数。
@@ -115,12 +120,13 @@ public:
 	// 返回值：视频格式信息字符串指针。NULL表示失败。
 	char* GetCurrentVideoFormat(int& Channel, int& Width, int& Height, double& secPerFrame);
 
-	// 功能：设置视频格式为指定编号的视频格式，并获得设置后的视频格式的尺寸。
-	// 输入：FormatNo - 视频设备所支持的视频格式编号（从0开始）。
-	// 输出：Channel - 颜色通道数。Width - 视频宽度。Height - 视频高度。secPerFrame - 每帧秒数。
-	// 返回值：返回1表示成功，0表示失败。
-	// 说明：即使格式设置失败可可以得到当前视频格式的尺寸。
-	int SetVideoFormat(int FormatNo, int& Channel, int& Width, int& Height, double& secPerFrame);
+	//// 改变视频格式需要重新建立Graph，这是旧版本。
+	//// 功能：设置视频格式为指定编号的视频格式，并获得设置后的视频格式的尺寸。
+	//// 输入：FormatNo - 视频设备所支持的视频格式编号（从0开始）。
+	//// 输出：Channel - 颜色通道数。Width - 视频宽度。Height - 视频高度。secPerFrame - 每帧秒数。
+	//// 返回值：返回1表示成功，0表示失败。
+	//// 说明：即使格式设置失败可可以得到当前视频格式的尺寸。
+	//int SetVideoFormat(int FormatNo, int& Channel, int& Width, int& Height, double& secPerFrame);
 
 	/************************ 图像获取 ************************/
 
